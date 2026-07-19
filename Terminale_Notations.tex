@@ -1,0 +1,240 @@
+% Preamble.
+\documentclass{article}
+
+% Packages.
+\usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
+\usepackage{amsmath, amssymb}   % Advanced math typesetting
+\usepackage{stmaryrd, bbm}
+\usepackage[french]{babel}      % Change hyphenation rules
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}           % Add a link to your document
+\usepackage{graphicx}           % Add pictures to your document
+\usepackage{listings}           % Source code formatting and highlighting
+\usepackage{csquotes}
+\usepackage{interval}
+
+% Macros.
+%% Double interval.
+\newcommand{\iinterval}[2]{\llbracket #1; #2 \rrbracket}
+%% Finite set, with curly braces.
+\newcommand{\setf}[1]{\{#1 \}}
+%% Floor brackets.
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+%% Ceiling brackets.
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+%% Pre-formatted "Exemple".
+\newcommand{\Ex}{\textsc{Exemple}: }
+
+% Data.
+\title{Terminale - Notations mathématiques.}
+\author{Hector GARLATTI}
+\date{\today{}}
+
+\begin{document}
+\sloppy 
+\maketitle
+
+\section{Utilité.}
+Ce document est une fiche, rédigée en \LaTeX, d'élève de fin de Terminale. 
+Surtout destinée aux révisions pour les classes préparatoires, 
+elle peut servir d'aperçu pour les élèves de Première.
+
+\subsection{Introduction.}
+Le langage mathématique permet une expression objective, non-ambiguë
+des théorèmes et des propriétés. Je pense qu'il est déjà utile en début
+de Terminale de se familiariser avec ses notions car elles permettent:
+\begin{itemize}
+    \item la précision et la rigueur;
+    \item de commencer à s'immerger dans l'univers
+    des "mathématiques sérieuses";
+    \item exprimer des concepts plus avancés.
+\end{itemize}
+
+Cependant, ces notations ne sont pas de excuses pour ne pas rédiger
+et sont d'abord des outils pour enrichir la rédaction, non la simplifier.
+
+\subsection{Règles pour la démonstration.}
+En fin de Terminale, certains règles précises doivent être maîtrisés. 
+En voici quelques unes:
+\begin{enumerate}
+    \item Un discours mathématiques n'est pas un suite de symboles.
+    \item Tout objet est \textit{déclaré} avant d'être utilisé. \\
+        \Ex \enquote{\underline{Soit} $x$ un nombre réel positif.}
+    \item Une bonne démonstration est structurée par des locutions 
+    qui guident le lecteur, que nous pouvons mettre en évidence
+    (souligné, italique). \\
+        \Ex \enquote{
+            \underline{Montrons que} ... 
+            \underline{Ainsi} ...
+        }
+\end{enumerate}
+
+
+\section{Notations, quantificateurs.}
+Ici ne seront que listé et brièvement mis en contexte les notation.
+Pour des explications plus approfondies, se référer au leçons.
+
+\subsection{Ensembles.}
+
+\paragraph{Ensembles de nombres usuels.}
+\begin{itemize}
+    \item Notons un ensemble: $E = \{a; b; c; ...\}$:
+    \begin{itemize}
+        \item son nombre d'éléments: $\text{Card}({E}) = |E|$;
+        \item l'ordre ne compte pas; \\
+        \Ex $\{1; 2\} = \{2; 1\}$
+        \item les répétitions sont "effacées"; \\
+        \Ex $\{1; 2; 2\} = \{1; 2\}$
+    \end{itemize} 
+    \item $\varnothing = \{\}$: l'ensemble vide.
+    \item $\mathbb{N}$: les entiers naturels, \\
+        \Ex $\{0; 1; 2; \dots\}$. 
+    \item $\mathbb{Z}$: les entiers relatifs, \\ 
+        \Ex $\{0; 1; -1; 2; -2; ...\}$.
+    \item $\mathbb{Q}$: les nombres rationnels, toutes les fractions 
+    $$
+    \forall (p; q) \in \mathbb{Z}\times \mathbb{N}^{\star} \quad 
+    \frac{p}{q}
+    $$.
+    \item $\mathbb{R}$: le continuum des réels, \\
+        \Ex $\{\sqrt{2}; \pi; \sin(2); \dots\}$.
+    \item $\mathbb{C}$: les complexes, \\
+        \Ex $\{1 + 2i; 2e^{\frac{1}{4}i\pi}; \dots\}$.
+    \item $\mathbb{R}^{n}$: les vecteurs (vecteurs, points, $\dots$) de $n$ dimensions. \\
+        \Ex $(1; 2) \in \mathbb{R}^2$
+    \item $E[X]$: les polynômes à valeurs dans $E$. \\
+        \Ex $(x^2 + 3) \in \mathbb{R}[X]$ 
+    \item $\mathcal{M}_{n, m}(E)$: les matrices de taille $(n, m)$ 
+        à coefficients dans $E$ \\
+        \Ex $\mathbbm{1}_3 \in \mathcal{M}_{3}(\mathbb{N})$
+\end{itemize}
+
+\paragraph{Appartenance.} 
+Notations permettant de déclarer un object (\textit{cf.} \textbf{1.2.3})
+de le décrire.
+
+\begin{itemize}
+    \item $\in$: un scalaire, un nombre, un vecteur fait parti d'un ensemble $E$. \\
+        \Ex 
+        \enquote{$x \in \mathbb{R}$} signifie 
+        \enquote{\underline{Soit} $x$ un nombre réel.}
+    \item $\subset$: un ensemble $A$ est compris dans, est un sous-ensemble de $B$. \\
+        \Ex $A \subset B$ \\
+        Ainsi, nous pouvons écrire pour nos ensembles usuels 
+        (penser au diagramme des cercles): 
+        \begin{equation}
+            \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} 
+            \subset \mathbb{R} \subset \mathbb{C}
+        \end{equation}
+\end{itemize}
+
+\paragraph{Altérations et operations.} 
+Pour un ensemble $E$.
+\begin{itemize}
+    \item $E^{\star}$: excluant $0$. \\
+        \Ex $\mathbb{N}^{\star}$, tout les entiers naturel 
+        \textit{hormis} $0$.
+    \item $E_{+}$: gardant uniquement les positifs. \\
+        \Ex $\mathbb{R}_{+}$, tout les réels \textit{positifs}.
+    \item $E_{-}$: gardant uniquement les négatifs. \\
+        \Ex $\mathbb{R}^{\star}_{-}$, tout les réels négatifs sans $0$.
+    
+    \item $\setminus$: difference d'ensembles. \\
+        \Ex $\mathbb{R} \setminus \{1\}$, tout les réels excluant $1$.
+    \item $\cup$: union, \enquote{ou inclusif} logique. \\
+        \Ex $\{1; 2\} \cup \{2; 3\} = \{1; 2; 3\}$
+    \item $\cap$: intersection, \enquote{et} logique. \\
+        \Ex $\{1; 2\} \cap \{2; 3\} = \{2\}$
+    \item $\times$ et $E^{n}$: produit cartésien. \\
+        \Ex \begin{itemize}
+            \item Ensembles finis: $$
+                \setf{1; 2} \times \setf{3, 4} 
+              = \setf{(1; 3), (1; 4), (2; 3), (2; 4)}
+            $$
+            \item La droite réelle: $\mathbb{R}$,
+                le plan réel: $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
+        \end{itemize}
+\end{itemize}
+
+\paragraph{Segments.} 
+
+\begin{itemize}
+    \item $\interval{a}{b}, \interval[open]{a}{b}$: 
+        un intervalle ou \textit{segment} de $\mathbb{R}$.
+    \item $\iinterval{a}{b}$: un intervalle d'entier. \\
+        \Ex $\iinterval{2}{5} = \setf{2; 3; 4; 5}$
+\end{itemize}
+
+
+\subsection{Quantificateurs.}
+\textsc{Attention}: en utilisant ses symboles, nous \textit{posons} une propriété.
+Si une démonstration commence par un quantificateur, 
+c'est que nous assumons cette propriété vraie.
+
+\begin{itemize}
+    \item $\forall$: \enquote{pour tout}, \enquote{quelque soit}. 
+        C'est un quantificateur \enquote{puissant}:
+        pour tout ses $x$ possible, les propriétés qui découlent 
+        doit être vraies et prouvées. \\
+        \Ex 
+        \begin{equation}    
+            \forall x \in \mathbb{R}, e^x > 0
+        \end{equation}
+        
+    \item $\exists$: \enquote{il existe} au moins un. \\
+        \Ex 
+        \begin{equation}
+            \forall y \in \mathbb{R}, \quad 
+            \exists x \in \mathbb{R}, \quad
+            y = x^2
+        \end{equation}
+
+    \item $\nexists$: \enquote{il n'existe aucun}. 
+    \item $\exists!$: \enquote{il existe} un \textit{unique}.
+\end{itemize}
+
+
+\subsection{Divers.}
+
+\paragraph{Nombres décimaux.}
+\begin{itemize}
+    \item $\floor{x} = \text{E}(x)$: partie entière, \enquote{sol} de $x$. \\
+        \Ex $$
+        \begin{aligned}
+            \floor{x}  \leq \; &x < \floor{x} + 1 \\
+            \floor{1.5}     &= 1 \\
+            \floor{-4.1}    &= -5 \\
+        \end{aligned}
+        $$
+    \item $\ceil{x}$: \enquote{plafond} de $x$. $\ceil{x} = \floor{x} + 1$
+\end{itemize}
+
+\paragraph{Analyse et suites.}
+Pour un ensemble $E$.
+Nous pouvons \textit{étendre} $E$: $$
+    E \cup \setf{+\infty; -\infty}
+$$.
+
+\begin{itemize}
+    \item $a \to b$ pour $a \in E, b \in E \cup \setf{+\infty; -\infty}$: 
+        nous faisons tendre $a$ vers $b$. \\
+        \textsc{Attention}: Tout de même, $a \neq b$.
+    \item Pour $l \in E \cup \setf{+\infty; -\infty}$: 
+        nous supposons l'existence d'une limite $l$ pour $f(a)$ quand $a$ tends vers $b$: 
+        $$
+            \lim_{a \to b}{f(a)} = l
+        $$
+
+    \item $(u_n)_{n > 0}, \forall n \in \mathbb{N}$: la suite $(u_n)$.
+    \item Pour des ensembles $A$ et $B$, $f$ est un fonction qui à l'antécédent $x \in A$ 
+        applique l'image $f(x) \in B$.
+        $$
+        \begin{aligned}
+            f:\;&A &\to     \;\; &B \\
+                &x &\mapsto \;\; &f(x)
+        \end{aligned}  
+        $$ 
+
+    \end{itemize}
+
+\end{document}
