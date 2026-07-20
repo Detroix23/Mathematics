@@ -3,6 +3,7 @@ Dans le cadre des cours et du plaisir de mathématiques de la Terminale et au-de
 sont compilés ici des fiches techniques, documentations, résumés, pouvant être utiles
 aussi bien pour des révisions que pour la satisfaire sa curiosité.
 
+Je suis toujours à votre disposition pour des conseils ou des corrections.
 
 ## Structure.
 Navigation en dossiers du dépôt:
