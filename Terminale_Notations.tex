@@ -1,5 +1,7 @@
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
 % Preamble.
-\documentclass{article}
+\documentclass[12pt]{article}
 
 % Packages.
 \usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
@@ -7,41 +9,56 @@
 \usepackage{stmaryrd, bbm}
 \usepackage[french]{babel}      % Change hyphenation rules
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}           % Add a link to your document
-\usepackage{graphicx}           % Add pictures to your document
+\usepackage{geometry}
 \usepackage{listings}           % Source code formatting and highlighting
 \usepackage{csquotes}
 \usepackage{interval}
 
+% Pages.
+\sloppy 
+\geometry{a4paper, total={17cm, 25cm}}
+\renewcommand{\baselinestretch}{1.4}
+
 % Macros.
 %% Double interval.
-\newcommand{\iinterval}[2]{\llbracket #1; #2 \rrbracket}
+\newcommand{\iinterval}[2]{
+    \left\llbracket 
+        #1; #2 
+    \right\rrbracket
+}
 %% Finite set, with curly braces.
-\newcommand{\setf}[1]{\{#1 \}}
+\newcommand{\setf}[1]{\left\{#1\right\}}
+%% Parenthesis.
+\newcommand{\of}[1]{\left(#1\right)}
+%% Square brackets.
+\newcommand{\brackets}[1]{\left[#1\right]}
 %% Floor brackets.
-\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 %% Ceiling brackets.
-\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+%% Absolute value.
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 %% Pre-formatted "Exemple".
 \newcommand{\Ex}{\textsc{Exemple}: }
-
+%% Pre-formatted "Tel que".
+\newcommand{\tq}{\text{ tel que }}
 % Data.
 \title{Terminale - Notations mathématiques.}
 \author{Hector GARLATTI}
 \date{\today{}}
 
 \begin{document}
-\sloppy 
 \maketitle
 
 \section{Utilité.}
 Ce document est une fiche, rédigée en \LaTeX, d'élève de fin de Terminale. 
 Surtout destinée aux révisions pour les classes préparatoires, 
-elle peut servir d'aperçu pour les élèves de Première.
+elle peut servir d'aperçu pour les élèves de Première et de lecture pour
+le plaisir des mathématiques.
 
 \subsection{Introduction.}
 Le langage mathématique permet une expression objective, non-ambiguë
-des théorèmes et des propriétés. Je pense qu'il est déjà utile en début
+des théorèmes et des propriétés. Il peut est déjà utile en début
 de Terminale de se familiariser avec ses notions car elles permettent:
 \begin{itemize}
     \item la précision et la rigueur;
@@ -54,7 +71,7 @@ Cependant, ces notations ne sont pas de excuses pour ne pas rédiger
 et sont d'abord des outils pour enrichir la rédaction, non la simplifier.
 
 \subsection{Règles pour la démonstration.}
-En fin de Terminale, certains règles précises doivent être maîtrisés. 
+En fin de Terminale, certains règles précises doivent être maîtrisées. 
 En voici quelques unes:
 \begin{enumerate}
     \item Un discours mathématiques n'est pas un suite de symboles.
@@ -78,53 +95,87 @@ Pour des explications plus approfondies, se référer au leçons.
 
 \paragraph{Ensembles de nombres usuels.}
 \begin{itemize}
-    \item Notons un ensemble: $E = \{a; b; c; ...\}$:
-    \begin{itemize}
-        \item son nombre d'éléments: $\text{Card}({E}) = |E|$;
-        \item l'ordre ne compte pas; \\
-        \Ex $\{1; 2\} = \{2; 1\}$
-        \item les répétitions sont "effacées"; \\
-        \Ex $\{1; 2; 2\} = \{1; 2\}$
-    \end{itemize} 
-    \item $\varnothing = \{\}$: l'ensemble vide.
+    \item $\varnothing = \setf{}$: l'ensemble vide.
     \item $\mathbb{N}$: les entiers naturels, \\
-        \Ex $\{0; 1; 2; \dots\}$. 
+        \Ex $\setf{0; 1; 2; \dots}$. 
     \item $\mathbb{Z}$: les entiers relatifs, \\ 
-        \Ex $\{0; 1; -1; 2; -2; ...\}$.
+        \Ex $\setf{0; 1; -1; 2; -2; ...}$.
     \item $\mathbb{Q}$: les nombres rationnels, toutes les fractions 
-    $$
-    \forall (p; q) \in \mathbb{Z}\times \mathbb{N}^{\star} \quad 
-    \frac{p}{q}
-    $$.
+    $$ \setf{
+        \frac{p}{q} \; | \;    
+        \forall p; q \in \mathbb{Z}\times \mathbb{N}^{\star} 
+    } $$.
     \item $\mathbb{R}$: le continuum des réels, \\
-        \Ex $\{\sqrt{2}; \pi; \sin(2); \dots\}$.
+        \Ex $\setf{\sqrt{2}; \pi; \sin(2); \dots}$.
     \item $\mathbb{C}$: les complexes, \\
-        \Ex $\{1 + 2i; 2e^{\frac{1}{4}i\pi}; \dots\}$.
+        \Ex $\setf{1 + 2i; 2e^{\frac{1}{4}i\pi}; \dots}$.
     \item $\mathbb{R}^{n}$: les vecteurs (vecteurs, points, $\dots$) de $n$ dimensions. \\
         \Ex $(1; 2) \in \mathbb{R}^2$
     \item $E[X]$: les polynômes à valeurs dans $E$. \\
-        \Ex $(x^2 + 3) \in \mathbb{R}[X]$ 
+        \Ex $(x^2 + 3) \in \mathbb{R}\left[X\right]$ 
     \item $\mathcal{M}_{n, m}(E)$: les matrices de taille $(n, m)$ 
         à coefficients dans $E$ \\
         \Ex $\mathbbm{1}_3 \in \mathcal{M}_{3}(\mathbb{N})$
 \end{itemize}
+
+\paragraph{Segments et \enquote{regroupement} de nombres.} 
+\begin{itemize}
+    \item $\interval{a}{b}, \interval[open]{a}{b}$: 
+        un intervalle ou \textit{segment} de $\mathbb{R}$.
+    \item $\iinterval{a}{b}$: un intervalle d'entier. \\
+        \Ex $\iinterval{2}{5} = \setf{2; 3; 4; 5}$
+
+    \item $T = \underbrace{\left(a; b; c; ...\right)}_{t}$ 
+        est un $t$-uplet:
+        \begin{itemize}
+            \item son nombre d'éléments: $t = \text{Card}({E}) = |E|$, \\
+                pour $t = 2$, $T$ est un \text{couple};
+                pour $t = 3$, $T$ est un \text{triplet}, $\dots$;
+            \item l'ordre compte; \\
+            \Ex $\left(1; 2\right) \neq \left(2; 1\right)$
+            \item les répétitions sont autorisées; \\
+            \Ex $\left(1; 2; 2\right) \neq \left(1; 2\right)$
+        \end{itemize} 
+
+    \item $E = \setf{a; b; c; ...}$ est un ensemble:
+        \begin{itemize}
+            \item son nombre d'éléments: $\text{Card}({E}) = |E|$, \\
+                pour $|E| = 1$, $E$ est un \textit{singleton};
+            \item l'ordre ne compte pas; \\
+            \Ex $\setf{1; 2} = \setf{2; 1}$
+            \item les répétitions sont "effacées"; \\
+            \Ex $\setf{1; 2; 2} = \setf{1; 2}$
+        \end{itemize} 
+
+    \item Création d'ensemble \enquote{par compréhension},
+        de sous-ensemble de $E$ selon une structure: $$
+        \setf{f(x) \;\vert\;  \forall x \in E} = f(E) 
+        $$ 
+        \Ex Tout les nombres impairs: $$
+            \setf{2k + 1 \;\vert\; \forall k \in \mathbb{Z}} 
+          = 2\mathbb{Z} + 1
+        $$
+\end{itemize}
+\textsc{Attention}: Guillemets car les \textit{classes} et les 
+    \textit{groupes} sont encore d'autres notions !
+
 
 \paragraph{Appartenance.} 
 Notations permettant de déclarer un object (\textit{cf.} \textbf{1.2.3})
 de le décrire.
 
 \begin{itemize}
-    \item $\in$: un scalaire, un nombre, un vecteur fait parti d'un ensemble $E$. \\
+    \item $x \in E$: un scalaire, un nombre, un vecteur fait parti d'un ensemble $E$. \\
         \Ex 
         \enquote{$x \in \mathbb{R}$} signifie 
         \enquote{\underline{Soit} $x$ un nombre réel.}
-    \item $\subset$: un ensemble $A$ est compris dans, est un sous-ensemble de $B$. \\
+    \item $A \subset B$: un ensemble $A$ est compris dans, est un sous-ensemble de $B$. \\
         \Ex $A \subset B$ \\
         Ainsi, nous pouvons écrire pour nos ensembles usuels 
         (penser au diagramme des cercles): 
         \begin{equation}
-            \mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} 
-            \subset \mathbb{R} \subset \mathbb{C}
+            \varnothing \subset \mathbb{N} \subset \mathbb{Z} \subset 
+            \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}
         \end{equation}
 \end{itemize}
 
@@ -139,13 +190,19 @@ Pour un ensemble $E$.
     \item $E_{-}$: gardant uniquement les négatifs. \\
         \Ex $\mathbb{R}^{\star}_{-}$, tout les réels négatifs sans $0$.
     
-    \item $\setminus$: difference d'ensembles. \\
+    \item $A \setminus B$: difference d'ensembles. \\
         \Ex $\mathbb{R} \setminus \{1\}$, tout les réels excluant $1$.
-    \item $\cup$: union, \enquote{ou inclusif} logique. \\
+    \item $A \cup B$: union 
+        (ensembles, probabilités, \enquote{ou inclusif} logique, géométrie, $\dots$).\\
         \Ex $\{1; 2\} \cup \{2; 3\} = \{1; 2; 3\}$
-    \item $\cap$: intersection, \enquote{et} logique. \\
-        \Ex $\{1; 2\} \cap \{2; 3\} = \{2\}$
-    \item $\times$ et $E^{n}$: produit cartésien. \\
+    \item $A \cap B$: intersection 
+        (ensembles, probabilités, \enquote{et} logique, géométrie, $\dots$).\\
+        \Ex \begin{itemize}
+            \item $\{1; 2\} \cap \{2; 3\} = \{2\}$
+            \item $A$ et $B$ sont \textit{disjoint} quand 
+                $A \cap B = \varnothing$
+        \end{itemize}
+    \item $A \times B$ et $E^{n}$: produit cartésien. \\
         \Ex \begin{itemize}
             \item Ensembles finis: $$
                 \setf{1; 2} \times \setf{3, 4} 
@@ -154,34 +211,25 @@ Pour un ensemble $E$.
             \item La droite réelle: $\mathbb{R}$,
                 le plan réel: $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$
         \end{itemize}
+    
 \end{itemize}
-
-\paragraph{Segments.} 
-
-\begin{itemize}
-    \item $\interval{a}{b}, \interval[open]{a}{b}$: 
-        un intervalle ou \textit{segment} de $\mathbb{R}$.
-    \item $\iinterval{a}{b}$: un intervalle d'entier. \\
-        \Ex $\iinterval{2}{5} = \setf{2; 3; 4; 5}$
-\end{itemize}
-
 
 \subsection{Quantificateurs.}
 \textsc{Attention}: en utilisant ses symboles, nous \textit{posons} une propriété.
 Si une démonstration commence par un quantificateur, 
-c'est que nous assumons cette propriété vraie.
+c'est que nous assumons cette propriété vraie, dès le début.
 
 \begin{itemize}
-    \item $\forall$: \enquote{pour tout}, \enquote{quelque soit}. 
-        C'est un quantificateur \enquote{puissant}:
-        pour tout ses $x$ possible, les propriétés qui découlent 
+    \item $\forall x$: \enquote{pour tout}, \enquote{quelque soit} $x$. 
+        C'est un quantificateur \textit{puissant}:
+        pour \textit{tout} ses $x$ possible, les propriétés qui découlent 
         doit être vraies et prouvées. \\
         \Ex 
         \begin{equation}    
             \forall x \in \mathbb{R}, e^x > 0
         \end{equation}
         
-    \item $\exists$: \enquote{il existe} au moins un. \\
+    \item $\exists x$: \enquote{il existe} au moins un $x$. \\
         \Ex 
         \begin{equation}
             \forall y \in \mathbb{R}, \quad 
@@ -189,37 +237,136 @@ c'est que nous assumons cette propriété vraie.
             y = x^2
         \end{equation}
 
-    \item $\nexists$: \enquote{il n'existe aucun}. 
-    \item $\exists!$: \enquote{il existe} un \textit{unique}.
+    \item $\nexists x$: \enquote{il n'existe aucun} $x$. 
+    \item $\exists! x$: \enquote{il existe} un \textit{unique} $x$.
+\end{itemize}
+
+
+\subsection{Logique.}
+Bien utiliser les connecteurs et les implications logiques
+est crucial mais des contre-sens peuvent être commis.
+
+\paragraph{Symboles.}
+\begin{itemize}
+    \item $a = b$: $a$ \enquote{est égal} à, est défini par, $b$; 
+        défini l'identité entre 2 expressions 
+        (scalaires, vecteurs, ensembles, $\dots$).
+    \item $a \equiv b \left[m\right]$: 
+        $a$ \enquote{est congru} à $b$ modulo $m$ (arithmétique) si, et seulement si,
+        $\exists k \in \mathbb{Z} \tq (b - a) = km$ ; 
+    \item $\text{A} \Rightarrow  \text{B}$: 
+        $\text{A}$ \enquote{donc}, implique, $\text{B}$. Aussi rédigé: \enquote{$
+            \underline{Si}    \text{ A } 
+            \underline{alors} \text{ B } 
+        $}
+    \item $\text{A} \Leftrightarrow \text{B}$: 
+        $\text{A}$ \enquote{si, et \textit{seulement si}}, réciproquement, 
+        $\text{B}$. C'est un relation d'\textit{équivalence} 
+        et de \textit{double implication}: $$
+        \underline{Si} \text{ A} \Leftrightarrow \text{B } \underline{alors}
+        \begin{cases}
+            \text{B} \Leftrightarrow \text{A} \\
+            \text{A} \Rightarrow  \text{B}    \\
+            \text{B} \Rightarrow  \text{A}    \\
+        \end{cases} $$
+\end{itemize}
+
+\Ex $$
+\begin{aligned}
+    &x^2 = 25 \\
+\Rightarrow \; &x = \sqrt{25} \\
+\end{aligned}
+$$
+
+Ici, non pas d'équivalence ($\Leftrightarrow$), car cela impliquerait que
+$x$ vaille \textit{seulement et uniquement} $\sqrt{25}$,
+or $x = \pm\sqrt{25}$
+
+\paragraph{Propriétés.} Posons $\mathcal{P}: $\enquote{
+    \underline{si} A \underline{alors} B
+}
+\begin{itemize}
+    \item Si la réciproque de $\mathcal{P}$ est vraie, alors:
+        \enquote{\underline{$si$} B \underline{$alors$} A}
+    \item Si la contraposée de $\mathcal{P}$ est vraie:  
+        \enquote{\underline{$si$} non B \underline{$alors$} non A }
+\end{itemize}
+
+\Ex le théorème de Pythagore: $$
+\begin{aligned}
+                        &\mathcal{P}: 
+        \text{$ABC$ rectangle en $A$ } 
+        \underline{donc} \; BC^2 = AB^2 + AC^2 \\
+    \text{Réciproque }  &\mathcal{P}: 
+        BC^2 = AB^2 + AC^2 \;
+        \underline{donc} \text{ $ABC$ rectangle en $A$ } \\
+    \text{Contraposée } &\mathcal{P}: 
+        BC^2 \neq AB^2 + AC^2 \;
+        \underline{donc} \text{ $ABC$ n'est pas rectangle en $A$ } \\
+\end{aligned} $$ 
+
+\paragraph{Relations.} Pour une operation $*$ quelconque ($+, -, \times, \dots$)
+et des valeurs dans un ensemble $E$.
+\begin{itemize}
+    \item Réflexivité: $x = x$.
+    \item Symétrie: $x = y \iff y = x$:
+    \item Transitivité: $
+        x = y \text{ et } y = z \;
+        \Rightarrow x = z 
+    $.
+    \item Distributivité avec l'addition: $a * (b + c) = a * b + a * c$
+    \item Associativité: $a * (b * c) = (a * b) * c$.
+    \item Commutativité: $a * b = b * a$.
+    \item Opposé: $\forall x \in E, \exists y \in E
+        \tq x * y = 0$
+    \item Inverse: $\forall x \in E, \exists y \in E
+        \tq x * y = x * x^{-1} = 1 $
+    \item Linéarité d'une expression $f$, de 2 constantes $a$, $b$ 
+    et d'une inconnue $x$: $f\of{ax + b} = af\of{x} + f\of{x}$
 \end{itemize}
 
 
 \subsection{Divers.}
 
-\paragraph{Nombres décimaux.}
+\paragraph{Nombres.}
 \begin{itemize}
     \item $\floor{x} = \text{E}(x)$: partie entière, \enquote{sol} de $x$. \\
         \Ex $$
         \begin{aligned}
-            \floor{x}  \leq \; &x < \floor{x} + 1 \\
-            \floor{1.5}     &= 1 \\
-            \floor{-4.1}    &= -5 \\
+            \floor{x} \leq \;   &x < \floor{x} + 1  \\
+            \floor{1.5}         &= 1                \\
+            \floor{-4.1}        &= -5               \\
         \end{aligned}
         $$
-    \item $\ceil{x}$: \enquote{plafond} de $x$. $\ceil{x} = \floor{x} + 1$
+    \item $\ceil{x}$: \enquote{plafond} de $x$. $\ceil{x} = \floor{x} + 1$.
+    \item $x = \pm y$: \enquote{plus ou moins}, $x \in \setf{+y; -y}$.
+    \item $\abs{x}$: valeur absolue de $x$ ou cardinal.
+    \begin{itemize}
+        \item Pour $x \in \mathbb{R}$, distance à zéro: 
+            $\abs{x} = \sqrt{x^2} = \begin{cases}
+                \phantom{-}x  &\text{ si } x > 0 \\
+                -x  &\text{ sinon }    \\ 
+            \end{cases}$ 
+        \item Pour $z = a + ib$, distance à zéro: 
+            $\abs{z} = \sqrt{a^2 + b^2}$
+    \end{itemize}
+    \item $\bar{z}$: conjugué de $z \in \mathbb{C}$.
+        Pour $z = a + ib,\; \bar{z} = a - ib$
+    \item $\arg\of{z}$: argument de $z \in \mathbb{C}$.
+        Pour $z = re^{i\theta},\; \arg\of{z} = \theta$
 \end{itemize}
 
-\paragraph{Analyse et suites.}
+\paragraph{Fonction et suites.}
 Pour un ensemble $E$.
 Nous pouvons \textit{étendre} $E$: $$
-    E \cup \setf{+\infty; -\infty}
+    E_{\infty} = E \cup \setf{+\infty; -\infty}
 $$.
 
 \begin{itemize}
-    \item $a \to b$ pour $a \in E, b \in E \cup \setf{+\infty; -\infty}$: 
+    \item $a \to b$ pour $a \in E, b \in E_{\infty}$: 
         nous faisons tendre $a$ vers $b$. \\
         \textsc{Attention}: Tout de même, $a \neq b$.
-    \item Pour $l \in E \cup \setf{+\infty; -\infty}$: 
+    \item Pour $l \in E_{\infty}$: 
         nous supposons l'existence d'une limite $l$ pour $f(a)$ quand $a$ tends vers $b$: 
         $$
             \lim_{a \to b}{f(a)} = l
@@ -227,14 +374,77 @@ $$.
 
     \item $(u_n)_{n > 0}, \forall n \in \mathbb{N}$: la suite $(u_n)$.
     \item Pour des ensembles $A$ et $B$, $f$ est un fonction qui à l'antécédent $x \in A$ 
-        applique l'image $f(x) \in B$.
-        $$
+        applique l'image $f(x) \in B$: $$
         \begin{aligned}
             f:\;&A &\to     \;\; &B \\
                 &x &\mapsto \;\; &f(x)
-        \end{aligned}  
-        $$ 
+        \end{aligned} $$ 
+        \Ex $$
+        \begin{aligned}
+            f:\;&\mathbb{R}^{\star} &\to \;\; &\mathbb{R}_{+} \\
+                &x &\mapsto \;\; &e^{\frac{1}{x}}
+        \end{aligned} $$ 
+\end{itemize}
 
-    \end{itemize}
+
+\paragraph{Analyse.}
+Pour un ensemble $E$.
+\begin{itemize}
+    \item Somme des valeurs $f(i)$, pour $i$
+        allant de $a$ à $b$ \textit{inclus}: $$
+            \sum_{i=a}^{b}{f(i)} 
+          = f(a) + f(a+1) + \dots + f(b-1) + f(b)
+         $$
+        \Ex $$
+        \begin{aligned}
+            &\sum_{i=1}^{3}{2i} 
+          = 2\times1 + 2\times2 + 2\times3 \\
+          = \; &2\sum_{i=1}^{3}{i}
+          = 2 \times (1 + 2 + 3)
+          = 12
+        \end{aligned}
+        $$
+    
+    \item Produit des valeurs $f(i)$, pour $i$
+        allant de $a$ à $b$ \textit{inclus}: $$
+            \prod_{i=a}^{b}{f(i)}
+          = f(a) \times f(a+1) \times \dots \times f(b-1) \times f(b)
+        $$
+
+    \item $f^{(n)}$ ou $\frac{d^{n}f}{dx^{n}}$ pour $d \to 0$: dérivée $n$-ième
+        de la fonction $f$. \\
+        \Ex $
+            f^\prime = \frac{df}{dx} \quad 
+            (f^{\prime})^{\prime} = f^{\prime\prime} = \frac{d^{2}f}{dx^2}
+        $ 
+    \item Pour $a, b \in E$, l'intégrale de $a$ à $b$ de la fonction $f$ 
+        $\tq F^{\prime} = f$ pour $d \to 0$,  
+        revient à cherche la \textit{primitive} de $f$:
+        $$
+            \int_{a}^{b}{f\of{x}\,dx} = F\of{x}
+        $$
+        \Ex
+        $$
+            \int_{0}^{1}{x\,dx}
+          = \brackets{\frac{x^2}{2}}_{x=0}^{x=1}
+          = \frac{1^2}{2} - \frac{0^2}{2}
+          = 0.5
+        $$
+\end{itemize}
+
+\paragraph{Probabilités.} Pour des événements $A$, $B$ et un variable aléatoire $X$.
+\begin{itemize}
+    \item $P_{B}\of{A} = \mathbb{P}\brackets{A \vert B}$:
+        la probabilité de $A$ \enquote{sachant}, conditionnée par, $B$.
+    \item $\mathcal{B}\of{n; p}$: loi binomiale 
+        de nombre de tirages $n \in \mathbb{N}^{\star}$
+        de probabilité $p \in \interval{0}{1}$.
+    \item $X \sim \mathcal{L}$: $X$ \enquote{suit}, \enquote{s'assimile} à 
+        une loi de probabilité $\mathcal{L}$.
+    \item $P\of{X = x} = \mathbb{P}\brackets{X = x}$:
+        la probabilité que $X$ vaille $x$.
+    \item $\mathbb{E}\of{X}$: espérance de $X$.
+    \item $\mathbb{V}\of{X}$: variance de $X$.
+\end{itemize}
 
 \end{document}
