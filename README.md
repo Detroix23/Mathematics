@@ -19,6 +19,6 @@ YouTube:
 - [Maths Adultes](https://www.youtube.com/@MathsAdultes)
 
 Scolaire:
-- les "polycopiés" et carnets de vacances des lycées Louis-le-Grand,
-Saint-Louis, Champollion.
+- les "polycopiés" et carnets de vacances pour les CPGE des lycées
+Louis-le-Grand, Saint-Louis, Champollion.
 - [Page de Colas Bardavid](https://colasbd.github.io/cdc-lycee/)
