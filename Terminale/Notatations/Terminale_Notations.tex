@@ -13,6 +13,7 @@
 \usepackage{listings}           % Source code formatting and highlighting
 \usepackage{csquotes}
 \usepackage{interval}
+\usepackage{pifont}
 
 % Pages.
 \sloppy 
@@ -42,6 +43,14 @@
 \newcommand{\Ex}{\textsc{Exemple}: }
 %% Pre-formatted "Tel que".
 \newcommand{\tq}{\text{ tel que }}
+%% Items.
+\newcommand{\In}{$\sim$}
+\newcommand{\Il}{$\square$}
+\newcommand{\Ia}{$\blacksquare$}
+\newcommand{\Ii}{\ding{93}}
+
+\AtBeginDocument{\def\labelitemi{\Ia}}
+
 % Data.
 \title{Terminale - Notations mathématiques.}
 \author{Hector GARLATTI}
@@ -70,6 +79,15 @@ de Terminale de se familiariser avec ses notions car elles permettent:
 Cependant, ces notations ne sont pas de excuses pour ne pas rédiger
 et sont d'abord des outils pour enrichir la rédaction, non la simplifier.
 
+\subsection{Raccourcis de cette fiche.}
+Les notions et notations sont classées par leur icône:
+\begin{itemize}
+    \item[\In] Personnelle ou non conventionnelle.
+    \item[\Il] Hors programmes ou moins critique.
+    \item[\Ia] Classique, usuelle et utile.
+    \item[\Ii] Clef, critique. 
+\end{itemize}
+
 \subsection{Règles pour la démonstration.}
 En fin de Terminale, certains règles précises doivent être maîtrisées. 
 En voici quelques unes:
@@ -96,24 +114,24 @@ Pour des explications plus approfondies, se référer au leçons.
 \paragraph{Ensembles de nombres usuels.}
 \begin{itemize}
     \item $\varnothing = \setf{}$: l'ensemble vide.
-    \item $\mathbb{N}$: les entiers naturels, \\
+    \item[\Ii] $\mathbb{N}$: les entiers naturels, \\
         \Ex $\setf{0; 1; 2; \dots}$. 
-    \item $\mathbb{Z}$: les entiers relatifs, \\ 
+    \item[\Ii] $\mathbb{Z}$: les entiers relatifs, \\ 
         \Ex $\setf{0; 1; -1; 2; -2; ...}$.
-    \item $\mathbb{Q}$: les nombres rationnels, toutes les fractions 
+    \item $\mathbb{Q}$: les nombres rationnels, toutes les fractions: 
     $$ \setf{
         \frac{p}{q} \; | \;    
         \forall p; q \in \mathbb{Z}\times \mathbb{N}^{\star} 
-    } $$.
-    \item $\mathbb{R}$: le continuum des réels, \\
+    } $$
+    \item[\Ii] $\mathbb{R}$: le continuum des réels, \\
         \Ex $\setf{\sqrt{2}; \pi; \sin(2); \dots}$.
-    \item $\mathbb{C}$: les complexes, \\
+    \item[\Ii] $\mathbb{C}$: les complexes, \\
         \Ex $\setf{1 + 2i; 2e^{\frac{1}{4}i\pi}; \dots}$.
     \item $\mathbb{R}^{n}$: les vecteurs (vecteurs, points, $\dots$) de $n$ dimensions. \\
         \Ex $(1; 2) \in \mathbb{R}^2$
-    \item $E[X]$: les polynômes à valeurs dans $E$. \\
+    \item[\Il] $E[X]$: les polynômes à valeurs dans $E$. \\
         \Ex $(x^2 + 3) \in \mathbb{R}\left[X\right]$ 
-    \item $\mathcal{M}_{n, m}(E)$: les matrices de taille $(n, m)$ 
+    \item[\Il] $\mathcal{M}_{n, m}(E)$: les matrices de taille $(n, m)$ 
         à coefficients dans $E$ \\
         \Ex $\mathbbm{1}_3 \in \mathcal{M}_{3}(\mathbb{N})$
 \end{itemize}
@@ -122,7 +140,7 @@ Pour des explications plus approfondies, se référer au leçons.
 \begin{itemize}
     \item $\interval{a}{b}, \interval[open]{a}{b}$: 
         un intervalle ou \textit{segment} de $\mathbb{R}$.
-    \item $\iinterval{a}{b}$: un intervalle d'entier. \\
+    \item[\Il] $\iinterval{a}{b}$: un intervalle d'entier. \\
         \Ex $\iinterval{2}{5} = \setf{2; 3; 4; 5}$
 
     \item $T = \underbrace{\left(a; b; c; ...\right)}_{t}$ 
@@ -165,7 +183,7 @@ Notations permettant de déclarer un object (\textit{cf.} \textbf{1.2.3})
 de le décrire.
 
 \begin{itemize}
-    \item $x \in E$: un scalaire, un nombre, un vecteur fait parti d'un ensemble $E$. \\
+    \item[\Ii] $x \in E$: un scalaire, un nombre, un vecteur fait parti d'un ensemble $E$. \\
         \Ex 
         \enquote{$x \in \mathbb{R}$} signifie 
         \enquote{\underline{Soit} $x$ un nombre réel.}
@@ -190,7 +208,7 @@ Pour un ensemble $E$.
     \item $E_{-}$: gardant uniquement les négatifs. \\
         \Ex $\mathbb{R}^{\star}_{-}$, tout les réels négatifs sans $0$.
     
-    \item $A \setminus B$: difference d'ensembles. \\
+    \item[\Il] $A \setminus B$: difference d'ensembles. \\
         \Ex $\mathbb{R} \setminus \{1\}$, tout les réels excluant $1$.
     \item $A \cup B$: union 
         (ensembles, probabilités, \enquote{ou inclusif} logique, géométrie, $\dots$).\\
@@ -220,7 +238,7 @@ Si une démonstration commence par un quantificateur,
 c'est que nous assumons cette propriété vraie, dès le début.
 
 \begin{itemize}
-    \item $\forall x$: \enquote{pour tout}, \enquote{quelque soit} $x$. 
+    \item[\Ii] $\forall x$: \enquote{pour tout}, \enquote{quel que soit} $x$. 
         C'est un quantificateur \textit{puissant}:
         pour \textit{tout} ses $x$ possible, les propriétés qui découlent 
         doit être vraies et prouvées. \\
@@ -229,7 +247,7 @@ c'est que nous assumons cette propriété vraie, dès le début.
             \forall x \in \mathbb{R}, e^x > 0
         \end{equation}
         
-    \item $\exists x$: \enquote{il existe} au moins un $x$. \\
+    \item[\Ii] $\exists x$: \enquote{il existe} au moins un $x$. \\
         \Ex 
         \begin{equation}
             \forall y \in \mathbb{R}, \quad 
@@ -248,18 +266,18 @@ est crucial mais des contre-sens peuvent être commis.
 
 \paragraph{Symboles.}
 \begin{itemize}
-    \item $a = b$: $a$ \enquote{est égal} à, est défini par, $b$; 
+    \item[\Ii] $a = b$: $a$ \enquote{est égal} à, est défini par, $b$; 
         défini l'identité entre 2 expressions 
         (scalaires, vecteurs, ensembles, $\dots$).
     \item $a \equiv b \left[m\right]$: 
         $a$ \enquote{est congru} à $b$ modulo $m$ (arithmétique) si, et seulement si,
         $\exists k \in \mathbb{Z} \tq (b - a) = km$ ; 
-    \item $\text{A} \Rightarrow  \text{B}$: 
+    \item[\Ii] $\text{A} \Rightarrow  \text{B}$: 
         $\text{A}$ \enquote{donc}, implique, $\text{B}$. Aussi rédigé: \enquote{$
             \underline{Si}    \text{ A } 
             \underline{alors} \text{ B } 
         $}
-    \item $\text{A} \Leftrightarrow \text{B}$: 
+    \item[\Ii] $\text{A} \Leftrightarrow \text{B}$: 
         $\text{A}$ \enquote{si, et \textit{seulement si}}, réciproquement, 
         $\text{B}$. C'est un relation d'\textit{équivalence} 
         et de \textit{double implication}: $$
@@ -286,9 +304,9 @@ or $x = \pm\sqrt{25}$
     \underline{si} A \underline{alors} B
 }
 \begin{itemize}
-    \item Si la réciproque de $\mathcal{P}$ est vraie, alors:
+    \item[\Ii] Si la \textit{réciproque} de $\mathcal{P}$ est vraie, alors:
         \enquote{\underline{$si$} B \underline{$alors$} A}
-    \item Si la contraposée de $\mathcal{P}$ est vraie:  
+    \item Si la \textit{contraposée} de $\mathcal{P}$ est vraie:  
         \enquote{\underline{$si$} non B \underline{$alors$} non A }
 \end{itemize}
 
@@ -308,9 +326,9 @@ or $x = \pm\sqrt{25}$
 \paragraph{Relations.} Pour une operation $*$ quelconque ($+, -, \times, \dots$)
 et des valeurs dans un ensemble $E$.
 \begin{itemize}
-    \item Réflexivité: $x = x$.
-    \item Symétrie: $x = y \iff y = x$:
-    \item Transitivité: $
+    \item[\Il] Réflexivité: $x = x$.
+    \item[\Il] Symétrie: $x = y \iff y = x$:
+    \item[\Il] Transitivité: $
         x = y \text{ et } y = z \;
         \Rightarrow x = z 
     $.
@@ -319,9 +337,9 @@ et des valeurs dans un ensemble $E$.
     \item Commutativité: $a * b = b * a$.
     \item Opposé: $\forall x \in E, \exists y \in E
         \tq x * y = 0$
-    \item Inverse: $\forall x \in E, \exists y \in E
+    \item[\Ii] Inverse: $\forall x \in E, \exists y \in E
         \tq x * y = x * x^{-1} = 1 $
-    \item Linéarité d'une expression $f$, de 2 constantes $a$, $b$ 
+    \item[\Ii] Linéarité d'une expression $f$, de 2 constantes $a$, $b$ 
     et d'une inconnue $x$: $f\of{ax + b} = af\of{x} + f\of{x}$
 \end{itemize}
 
@@ -330,17 +348,21 @@ et des valeurs dans un ensemble $E$.
 
 \paragraph{Nombres.}
 \begin{itemize}
-    \item $\floor{x} = \text{E}(x)$: partie entière, \enquote{sol} de $x$. \\
+    \item $\pi \approx 3.1415926535897932384626433$: Pi, la moitié de la circonférence 
+        d'un cercle de rayon $r = 1$.
+    \item $e   \approx 2.7182818284590452353602874$: le nombre d'Euler, base de l'exponentielle 
+        et du logarithme népérien.
+    \item $\floor{x} = \text{E}(x)$: partie entière, \enquote{sol} de $x$. 
+        $\floor{x} \leq x < \floor{x} + 1$   \\
         \Ex $$
         \begin{aligned}
-            \floor{x} \leq \;   &x < \floor{x} + 1  \\
             \floor{1.5}         &= 1                \\
             \floor{-4.1}        &= -5               \\
         \end{aligned}
         $$
-    \item $\ceil{x}$: \enquote{plafond} de $x$. $\ceil{x} = \floor{x} + 1$.
+    \item[\In] $\ceil{x}$: \enquote{plafond} de $x$. $\ceil{x} = \floor{x} + 1$.
     \item $x = \pm y$: \enquote{plus ou moins}, $x \in \setf{+y; -y}$.
-    \item $\abs{x}$: valeur absolue de $x$ ou cardinal.
+    \item[\Ii] $\abs{x}$: valeur absolue de $x$ ou cardinal.
     \begin{itemize}
         \item Pour $x \in \mathbb{R}$, distance à zéro: 
             $\abs{x} = \sqrt{x^2} = \begin{cases}
@@ -354,16 +376,20 @@ et des valeurs dans un ensemble $E$.
         Pour $z = a + ib,\; \bar{z} = a - ib$
     \item $\arg\of{z}$: argument de $z \in \mathbb{C}$.
         Pour $z = re^{i\theta},\; \arg\of{z} = \theta$
+    \item $\ln\of{x}$: logarithme népérien ou naturel de $x \in \mathbb{R}_{+}$.
+    \item[\Il] $\log_{b}\of{x}$: logarithme de base $b \in \mathbb{R}_{+}$ 
+        de $x \in \mathbb{R}_{+}$ \\
+        En particulier $\log_{e}\of{x} = \ln\of{x}$.
 \end{itemize}
 
 \paragraph{Fonction et suites.}
 Pour un ensemble $E$.
 Nous pouvons \textit{étendre} $E$: $$
-    E_{\infty} = E \cup \setf{+\infty; -\infty}
-$$.
+    (\sim) \quad E_{\infty} = E \cup \setf{+\infty; -\infty}
+$$
 
 \begin{itemize}
-    \item $a \to b$ pour $a \in E, b \in E_{\infty}$: 
+    \item[\Ii] $a \to b$ pour $a \in E, b \in E_{\infty}$: 
         nous faisons tendre $a$ vers $b$. \\
         \textsc{Attention}: Tout de même, $a \neq b$.
     \item Pour $l \in E_{\infty}$: 
@@ -372,8 +398,9 @@ $$.
             \lim_{a \to b}{f(a)} = l
         $$
 
-    \item $(u_n)_{n > 0}, \forall n \in \mathbb{N}$: la suite $(u_n)$.
-    \item Pour des ensembles $A$ et $B$, $f$ est un fonction qui à l'antécédent $x \in A$ 
+    \item $(u_n)_{n > 0}, \forall n \in \mathbb{N}$: la suite $(u_n)$,
+        pour $n > 0$.
+    \item[\Ii] Pour des ensembles $A$ et $B$, $f$ est un fonction qui à l'antécédent $x \in A$ 
         applique l'image $f(x) \in B$: $$
         \begin{aligned}
             f:\;&A &\to     \;\; &B \\
@@ -390,7 +417,7 @@ $$.
 \paragraph{Analyse.}
 Pour un ensemble $E$.
 \begin{itemize}
-    \item Somme des valeurs $f(i)$, pour $i$
+    \item[\Ii] Somme des valeurs $f(i)$, pour $i$
         allant de $a$ à $b$ \textit{inclus}: $$
             \sum_{i=a}^{b}{f(i)} 
           = f(a) + f(a+1) + \dots + f(b-1) + f(b)
@@ -411,18 +438,23 @@ Pour un ensemble $E$.
           = f(a) \times f(a+1) \times \dots \times f(b-1) \times f(b)
         $$
 
-    \item $f^{(n)}$ ou $\frac{d^{n}f}{dx^{n}}$ pour $d \to 0$: dérivée $n$-ième
-        de la fonction $f$. \\
-        \Ex $
+    \item[\Ii] Dérivée $n$-ième de la fonction $f$ dérivable $n$ fois, pour $d \to 0$, $$
+        f^{(n)} \text{ ou } \frac{d^{n}f}{dx^{n}}
+    $$
+        \Ex $$
             f^\prime = \frac{df}{dx} \quad 
             (f^{\prime})^{\prime} = f^{\prime\prime} = \frac{d^{2}f}{dx^2}
-        $ 
-    \item Pour $a, b \in E$, l'intégrale de $a$ à $b$ de la fonction $f$ 
+        $$
+    \item[\Ii] Pour $a, b \in E$, l'intégrale de $a$ à $b$ de la fonction $f$ 
         $\tq F^{\prime} = f$ pour $d \to 0$,  
         revient à cherche la \textit{primitive} de $f$:
         $$
             \int_{a}^{b}{f\of{x}\,dx} = F\of{x}
         $$
+    \item Difference simplifiée: $$
+        \brackets{f\of{x}}_{x=a}^{x=b} = f(b) - f(a) 
+    $$
+
         \Ex
         $$
             \int_{0}^{1}{x\,dx}
@@ -436,15 +468,63 @@ Pour un ensemble $E$.
 \begin{itemize}
     \item $P_{B}\of{A} = \mathbb{P}\brackets{A \vert B}$:
         la probabilité de $A$ \enquote{sachant}, conditionnée par, $B$.
-    \item $\mathcal{B}\of{n; p}$: loi binomiale 
+    \item[\Il] $\mathcal{B}\of{n; p}$: loi binomiale 
         de nombre de tirages $n \in \mathbb{N}^{\star}$
         de probabilité $p \in \interval{0}{1}$.
-    \item $X \sim \mathcal{L}$: $X$ \enquote{suit}, \enquote{s'assimile} à 
+    \item[\Il] $X \sim \mathcal{L}$: $X$ \enquote{suit}, \enquote{s'assimile} à 
         une loi de probabilité $\mathcal{L}$.
     \item $P\of{X = x} = \mathbb{P}\brackets{X = x}$:
         la probabilité que $X$ vaille $x$.
     \item $\mathbb{E}\of{X}$: espérance de $X$.
     \item $\mathbb{V}\of{X}$: variance de $X$.
+\end{itemize}
+
+
+\paragraph{Matrices.}
+\begin{itemize}
+    \item Définir une matrice $A \in \mathcal{M}_{m, n}(\mathbb{R})$ 
+        de taille ($m, n$) par chacun de ses coefficients \\ 
+        $\forall i, j \in \mathbb{R}^2, a_{i, j} \in \mathbb{R}$:
+        $$
+        A = \begin{pmatrix}
+            a_{1, 1} & a_{1, 2} & \dots & a_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \dots & a_{2, 3} \\
+            \dots    & \dots    & \dots & \dots    \\
+            a_{m, 1} & a_{m, 2} & \dots & a_{m, n} \\
+        \end{pmatrix}
+    $$
+    \item[\Il] Définir une matrice $A \in \mathcal{M}_{m, n}(\mathbb{R})$ 
+        de taille ($m, n$): $$
+            A = (a_{i, j}), \; \forall i, j \in \mathbb{R}^2
+        $$
+    \item[\In] Matrice nulle de taille ($n, n$),
+        $\forall i, j \in \iinterval{1}{n}$: $$
+    \begin{aligned}
+        &\mathbb{O}_{n} = (a_{i, j}) \\
+        \text{où } &a_{i, j} = 0 \\
+    \end{aligned}
+    $$ 
+
+    \item Matrice identité (carrée) de taille $n$, 
+        $\forall i, j \in \iinterval{1}{n} $: $$
+        I_n = \mathbbm{1}_{n} = \begin{pmatrix}
+            1 & 0 & \dots & 0 \\
+            0 & 1 & \dots & 0 \\
+            \dots & \dots & \dots & \dots \\
+            0 & 0 & \dots & 1 \\
+        \end{pmatrix}
+    $$ 
+
+    \item Déterminant d'un matrice: $$
+        det\of{A} = \begin{vmatrix}
+            a_{1, 1} & a_{1, 2} & \dots & a_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \dots & a_{2, 3} \\
+            \dots    & \dots    & \dots & \dots    \\
+            a_{m, 1} & a_{m, 2} & \dots & a_{m, n} \\
+        \end{vmatrix}
+    $$
+
+    
 \end{itemize}
 
 \end{document}
