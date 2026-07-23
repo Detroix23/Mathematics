@@ -332,9 +332,17 @@ et des valeurs dans un ensemble $E$.
         x = y \text{ et } y = z \;
         \Rightarrow x = z 
     $.
-    \item Distributivité avec l'addition: $a * (b + c) = a * b + a * c$
-    \item Associativité: $a * (b * c) = (a * b) * c$.
-    \item Commutativité: $a * b = b * a$.
+    \item Commutativité: $a \ast b = b \ast a$.
+    \item Associativité: $a \ast (b \ast c) = (a \ast b) \ast c$.
+    \item Distributivité avec l'addition: $
+          a \ast (b + c) 
+        = a \ast b + a \ast c
+    $
+    \item Bilinéarité: $
+          u \ast (\alpha v + \beta w) 
+        = \alpha (u \ast v) + \beta (u \ast w)
+    $
+
     \item Opposé: $\forall x \in E, \exists y \in E
         \tq x * y = 0$
     \item[\Ii] Inverse: $\forall x \in E, \exists y \in E
@@ -495,7 +503,7 @@ Pour un ensemble $E$.
     $$
     \item[\Il] Définir une matrice $A \in \mathcal{M}_{m, n}(\mathbb{R})$ 
         de taille ($m, n$): $$
-            A = (a_{i, j}), \; \forall i, j \in \mathbb{R}^2
+            \of{a_{i, j}} = f\of{i, j}, \; \forall i, j \in \mathbb{R}^2
         $$
     \item[\In] Matrice nulle de taille ($n, n$),
         $\forall i, j \in \iinterval{1}{n}$: $$

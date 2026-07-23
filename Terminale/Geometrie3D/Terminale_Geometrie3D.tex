@@ -1,0 +1,124 @@
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+\documentclass[12pt]{article}
+
+% Packages.
+\usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
+\usepackage{amsmath, amssymb}   % Advanced math typesetting
+\usepackage{stmaryrd, bbm}
+\usepackage[french]{babel}      % Change hyphenation rules
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}           % Source code formatting and highlighting
+\usepackage{csquotes}
+\usepackage{interval}
+\usepackage{pifont}
+
+% Pages.
+\sloppy 
+\geometry{a4paper, total={17cm, 25cm}}
+\renewcommand{\baselinestretch}{1.4}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert\ #1\;\right\rVert}
+
+% Data.
+\title{Terminale - Notations mathématiques.}
+\author{Hector GARLATTI}
+\date{\today{}}
+
+\begin{document}
+\maketitle
+
+\section{Rappels: vecteurs sur le plan, 2D.}
+
+\paragraph{Notations.}
+\begin{itemize}
+    \item Le plan en $2$-dimensions est un ensemble: $\R^2$.
+
+    \item Notons un vecteur $\vec{v} \in \R^2$ 
+    d'abscisse $x_{\vec{v}} \in \R$ et d'ordonnée: $y_{\vec{v}} \in \R$: $$
+        \vec{v} = \begin{pmatrix}
+            x_{\vec{v}} \\
+            y_{\vec{v}} \\
+        \end{pmatrix}
+    $$
+
+
+    \item Notons, aussi, $\overrightarrow{AB}$ le vecteur décrivant le
+    \enquote{mouvement} entre le point $A \in \R^2$ et le point $B \in \R^2$: $$
+        \overrightarrow{AB} = \begin{pmatrix}
+            x_B - x_A \\
+            y_B - y_B \\
+        \end{pmatrix}
+    $$
+
+    \item $
+        \norm{\vec{v}}   
+        = \sqrt{x_{\vec{v}}^2 + y_{\vec{v}}^2}
+        \geq 0
+    $: la norme, la longueur du vecteur $\vec{v}$.
+
+    \item Vecteur normal de $\vec{v}$ (notation variable): $$
+        \hat{n} = \vec{n} = \hat{v} = \frac{\vec{v}}{\norm{\vec{v}}},
+        \quad \norm{\hat{n}} = 1
+    $$ 
+
+    \item $A \parallel B$: 
+    \begin{itemize}
+        \item Si $A$ et $B$ sont droites, segments, courbes:
+            $A$ et $B$ sont \textit{parallèles}.
+        \item Si $A$ et $B$ sont des vecteurs:
+            $A$ et $B$ sont \textit{colinéaires}. 
+    \end{itemize}
+        
+    \item $A \perp B$: 
+    \begin{itemize}
+        \item Si $A$ et $B$ sont droites, segments, courbes:
+            $A$ et $B$ sont \textit{perpendiculaires}.
+        \item Si $A$ et $B$ sont des vecteurs:
+            $A$ et $B$ sont \textit{orthogonaux}.
+    \end{itemize}
+    
+    \item $H$ est le \textit{projeté orthogonal} du point $A$
+        sur $B$ (droite, plan) si: $$
+            (AH) \perp B \text{ et } H = (AH) \cap B
+        $$
+\end{itemize}
+
+\paragraph{Géométrie.}
+\begin{itemize}
+    \item Négation: $-\overrightarrow{AB} = \overrightarrow{BA}$
+    \item Relation de Chasles (\enquote{joindre les bouts}): $
+          \overrightarrow{AC} + \overrightarrow{CB}
+        = \overrightarrow{AB}
+    $
+    \item Distance euclidienne: $$
+        d = \sqrt{x^2 + y^2}
+    $$
+    \item Théorème de Thales: soit $2$ triangles $ABC$ et $ADE$: $$
+        (BC) \parallel (DE) \iff
+        \frac{AB}{AD} = \frac{AC}{AE} = \frac{BC}{DE}
+    $$
+    \item Equation de la droite $(d)$ entre $2$ points $A$ et $B$ de pente $m$. $$
+    \begin{aligned}
+              &m = \frac{y_B - y_A}{x_B - x_A} \\
+        (d):\;&m(x - x_A) + y_A = m(x - x_B) + y_B 
+    \end{aligned}
+    $$
+    \item Equation du cercle $\mathcal{C}$ centré sur 
+        le point $P$ de rayon $r \in \R$: $$
+        \mathcal{C}: (x - x_P)^2 + (y - y_P)^2 = r^2
+    $$
+
+\end{itemize}
+
+
+
+\section{Géométrie dans l'espace.}
+
+
+\section{Orthogonalité.}
+
+\end{document}
