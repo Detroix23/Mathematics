@@ -20,11 +20,15 @@
 \geometry{a4paper, total={17cm, 25cm}}
 \renewcommand{\baselinestretch}{1.4}
 
+%% Real set.
 \newcommand{\R}{\mathbb{R}}
+%% Length of vector.
 \newcommand{\norm}[1]{\left\lVert\ #1\;\right\rVert}
+%% Parenthesis.
+\newcommand{\of}[1]{\left(#1\right)}
 
 % Data.
-\title{Terminale - Notations mathématiques.}
+\title{Terminale - Mathématiques: géométrie dans l'espace.}
 \author{Hector GARLATTI}
 \date{\today{}}
 
@@ -85,15 +89,12 @@
         sur $B$ (droite, plan) si: $$
             (AH) \perp B \text{ et } H = (AH) \cap B
         $$
+    \item $\widehat{\vec{u}, \vec{v}}$: l'angle orienté entre les vecteurs
+        $\vec{u}$ et $\vec{v}$.
 \end{itemize}
 
 \paragraph{Géométrie.}
 \begin{itemize}
-    \item Négation: $-\overrightarrow{AB} = \overrightarrow{BA}$
-    \item Relation de Chasles (\enquote{joindre les bouts}): $
-          \overrightarrow{AC} + \overrightarrow{CB}
-        = \overrightarrow{AB}
-    $
     \item Distance euclidienne: $$
         d = \sqrt{x^2 + y^2}
     $$
@@ -101,22 +102,126 @@
         (BC) \parallel (DE) \iff
         \frac{AB}{AD} = \frac{AC}{AE} = \frac{BC}{DE}
     $$
+
+    \item Milieu $I$ entre deux points $A$ et $B$: $$
+        I = \frac{A + B}{2}
+    $$
+
     \item Equation de la droite $(d)$ entre $2$ points $A$ et $B$ de pente $m$. $$
     \begin{aligned}
               &m = \frac{y_B - y_A}{x_B - x_A} \\
-        (d):\;&m(x - x_A) + y_A = m(x - x_B) + y_B 
+        (d):\;&y = m(x - x_A) + y_A = m(x - x_B) + y_B 
     \end{aligned}
     $$
     \item Equation du cercle $\mathcal{C}$ centré sur 
         le point $P$ de rayon $r \in \R$: $$
         \mathcal{C}: (x - x_P)^2 + (y - y_P)^2 = r^2
     $$
+\end{itemize}
+
+
+\paragraph{Vecteurs.}
+\begin{itemize}
+    \item Négation: $-\overrightarrow{AB} = \overrightarrow{BA}$
+    \item Relation de Chasles (\enquote{joindre les bouts}): $
+          \overrightarrow{AC} + \overrightarrow{CB}
+        = \overrightarrow{AB}
+    $
+    \item Additions de vecteurs $\vec{u}$ et $\vec{v}$ dans $\R^2$: $$
+      \begin{pmatrix} x_u \\ y_u \end{pmatrix}
+    + \begin{pmatrix} x_v \\ y_v \end{pmatrix}
+    = \begin{pmatrix} x_u + x_v \\ y_u + y_v \end{pmatrix}
+    $$
+    \item Facteur d'un vecteur $\vec{v} \in \R^2$ par $a \in \R$: $$
+          a \times \begin{pmatrix} x_v \\ y_v \end{pmatrix}
+        = \begin{pmatrix} a \times x_v \\ a \times y_v \end{pmatrix}
+    $$
+    \item Produit scalaire de vecteurs $\vec{u}$ et $\vec{v}$ dans $\R^2$: $$
+    \begin{aligned}
+        \vec{u} \cdot \vec{v} 
+        & = x_{\vec{u}} \, x_{\vec{v}} + y_{\vec{u}} \, y_{\vec{v}} \\
+        & = \norm{\vec{u}} \times \norm{\vec{v}} \times 
+            \cos\of{\widehat{\vec{u}, \vec{v}}}
+    \end{aligned}
+    $$
 
 \end{itemize}
 
 
+\section{Géométrie dans un espace euclidien.}
+En Terminale, nous étendons notre champ d'action: 
+du plan, nous passons à l'espace 3-dimensionnel, dans $\R^3$.
+Ainsi, à l'abscisse et à l'ordonné nous ajoutons la \enquote{hauteur}:
+la \textit{cote} $z$ et notons, pour $\vec{v} \in \R^3$: $$
+    \vec{v} = \begin{pmatrix}
+        x_{\vec{v}} \\
+        y_{\vec{v}} \\
+        z_{\vec{v}} \\
+    \end{pmatrix}
+$$
 
-\section{Géométrie dans l'espace.}
+Plus formellement, les vecteurs $\vec{i}, \vec{j}, \vec{k}$ 
+forment une base $\mathcal{B}$ de $\R^3$ si, et seulement si: $$
+    \forall \vec{t} \in \R^3, \quad
+    \exists! (a, b, c) \in \R^3 \text{ tel que } 
+    \vec{t} = a\vec{i} + b\vec{j} + c\vec{k} 
+$$
+
+\paragraph{Propriétés.}
+Pour des vecteurs $\vec{u}, \vec{v}, \vec{w}$ dans $\R^3$.
+
+\begin{itemize}
+    \item Distance euclidienne dans $\R^3$, sur la même fondation que dans $\R^2$: $$
+        d = \sqrt{x^2 + y^2 + z^2}
+    $$
+    \item $\vec{u} \parallel \vec{v}$: $\vec{u}$ et $\vec{v}$ sont \textit{colinéaires},
+        comme dans $\R^2$, quand ils ont la même direction.
+        Autrement dit: les droites $(u)$ et $(v)$ guidées par leur vecteur
+        respectif sont parallèles $(u) \parallel (v)$. \\
+        Formellement, disons: $$
+            \exists! \lambda \in \R \quad \text{tel que} \quad
+            \vec{u} = \lambda \vec{v}
+        $$ \\
+        \textsc{Bonus}: nous disons aussi que leur 
+        \textit{produit croix} est nul: $\vec{u} \times \vec{v} = 0$
+
+    \item $\vec{u}, \vec{v}, \vec{w}$ sont \textit{coplanaires} s'ils sont compris
+        dans une même base $\mathcal{B}$ de $\R^2$. \\
+        Formellement, $\vec{u}$ peut s'écrire comme une 
+        \textit{combinaison linéaire} de $\vec{v}$ et $\vec{w}$: $$
+            \exists(\alpha, \beta) \in (\R^{\star})^2 \quad \text{tel que} \quad
+            \vec{u} = \alpha \vec{v} + \beta \vec{w}
+        $$
+\end{itemize}
+
+
+\paragraph{Figures.}
+\begin{itemize}
+    \item Représentation paramétrique de la droite $(d) \subset \R^3$,
+        pour un point $P \in (d)$ et un vecteur directeur $\vec{v}$: $$
+            (d) \; \begin{cases}
+                x = x_P + x_{\vec{v}}\,t \\ 
+                y = y_P + y_{\vec{v}}\,t \\ 
+                z = z_P + z_{\vec{v}}\,t \\ 
+            \end{cases}  \forall t \in \R
+        $$
+    \item Plan $\mathcal{P} \subset \R^3$: $$
+        \mathcal{P}: ax + by + cz + d = 0
+    $$
+    \item Propriété des milieux, 
+        $I \text{ milieu } de \left[AB\right], \forall M \in \R^3$: 
+        $$
+            2\overrightarrow{MI} = \overrightarrow{MA} + \overrightarrow{MB} 
+        $$
+    \item $ABCD$ parallélogramme $
+        \iff \overrightarrow{AB} + \overrightarrow{AD} = \overrightarrow{AC}
+        \iff \overrightarrow{AB} = \overrightarrow{DC}
+    $
+    \item Sphère $\mathcal{S}$ de rayon $r \in \R_{+}$ et de centre $C \in \R^3$: $$
+        \mathcal{S}: (x - x_C)^2 + (y - y_C)^2 + (z - z_C)^2 = r^2
+    $$
+    
+\end{itemize}
 
 
 \section{Orthogonalité.}
