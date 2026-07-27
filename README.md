@@ -19,9 +19,11 @@ YouTube:
 - [Maths Adultes](https://www.youtube.com/@MathsAdultes)
 
 Scolaire:
-- les "polycopiés" et carnets de vacances pour les CPGE des lycées
+- "Polycopiés" et carnets de vacances pour les CPGE des lycées
 Louis-le-Grand, Saint-Louis, Champollion.
-- [Page de Colas Bardavid](https://colasbd.github.io/cdc-lycee/)
+- [Page de C. Bardavid](https://colasbd.github.io/cdc-lycee/)
+- [_Logmaths_ de A. Abouhazim](https://www.logamaths.fr/)
+- [_Padlet_ de C. Moreaux](https://padlet.com/garlattihector23/terminale_spc_moreaux)
 
 ## A faire.
 Terminale:
@@ -52,7 +54,7 @@ Plaisir des mathématiques:
 - Espaces vectoriels.
 
 
-Terminale SPC ([Padlet](https://padlet.com/garlattihector23/terminale_spc_moreaux)).
+Terminale SPC.
 
 Physique pratique:
 - Lois de la cinématique (accélération & torque).

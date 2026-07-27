@@ -42,7 +42,7 @@
     \item Le plan en $2$-dimensions est un ensemble: $\R^2$.
 
     \item Notons un vecteur $\vec{v} \in \R^2$ 
-    d'abscisse $x_{\vec{v}} \in \R$ et d'ordonnée: $y_{\vec{v}} \in \R$: $$
+    d'abscisse $x_{\vec{v}} \in \R$ et d'ordonnée $y_{\vec{v}} \in \R$: $$
         \vec{v} = \begin{pmatrix}
             x_{\vec{v}} \\
             y_{\vec{v}} \\
@@ -64,9 +64,9 @@
         \geq 0
     $: la norme, la longueur du vecteur $\vec{v}$.
 
-    \item Vecteur normal de $\vec{v}$ (notation variable): $$
-        \hat{n} = \vec{n} = \hat{v} = \frac{\vec{v}}{\norm{\vec{v}}},
-        \quad \norm{\hat{n}} = 1
+    \item Vecteur \enquote{normalisé}, direction, de $\vec{v}$: $$
+        \hat{u} = \frac{\vec{v}}{\norm{\vec{v}}},
+        \quad \norm{\hat{u}} = 1
     $$ 
 
     \item $A \parallel B$: 
@@ -224,6 +224,129 @@ Pour des vecteurs $\vec{u}, \vec{v}, \vec{w}$ dans $\R^3$.
 \end{itemize}
 
 
+\paragraph{Quelques méthodes pour les exercices.}
+En géométrie, il suffit souvent de remplacer les valeurs des équations
+par les coordonnées des points, droites, plans que nous mettons en relation
+et vérifier qu'il n'y aie pas de contradiction.
+\begin{itemize}
+    \item \textit{Si} un point $P$ appartient à une droite $(d)$, 
+        \textit{Alors} $\exists! t \in \R$ tel que: $$
+        P \in (d) \begin{cases}
+            & x_P = a + xt \\ 
+            & y_P = b + yt \\
+            & z_P = c + zt \\
+        \end{cases}
+    $$ 
+    \item Si 2 droites non parallèles $(d)$ et $(\Delta)$ s'intersectent en un point $P$,
+        \textit{Alors} $\exists!(t, k) \in \R^2$ tel que: $$
+        P = (d) \cap (\Delta) \begin{cases}
+            & a + xt = a' + x'k \\
+            & b + yt = b' + y'k \\
+            & c + zt = c' + z'k \\
+        \end{cases}
+        $$
+\end{itemize}   
+
 \section{Orthogonalité.}
+Il peut être très utile de chercher les rapport orthogonaux, 
+étant la notions vectorielle équivalente de \enquote{parallèle}.
+
+\paragraph{Produit scalaire.}
+\begin{itemize}
+    \item Vecteurs $u$ et $v$ orthogonaux $\iff \vec{u} \cdot \vec{v} = 0$. 
+    \item Calculer le produit scalaire dans $\R^3$ (ressemble à $\R^2$): $$
+    \begin{aligned}
+        \vec{u} \cdot \vec{v} 
+        & = \norm{u} \times \norm{v} \times \cos(\widehat{\vec{u}, \vec{v}}) \\
+        & = x_{\vec{v}} \, x_{\vec{u}} 
+          + y_{\vec{v}} \, y_{\vec{u}} 
+          + z_{\vec{v}} \, z_{\vec{u}} \\
+    \end{aligned} $$
+    \item Carré scalaire de $\vec{v}$: $$
+        \vec{v} \cdot \vec{v} = \vec{v}^2 = \norm{\vec{v}}^2
+    $$
+
+    \item 3 identités remarquables pour les vecteurs $u$ et $v$: 
+        
+        \begin{equation} \label{IR1}
+            (\vec{u} + \vec{v})^2 = \vec{u}^2 + \vec{u} \cdot \vec{v} + \vec{v}^2
+        \end{equation} \begin{equation} \label{IR2}
+            (\vec{u} - \vec{v})^2 = \vec{u}^2 - \vec{u} \cdot \vec{v} + \vec{v}^2
+        \end{equation} \begin{equation} \label{IR3}
+            (\vec{u} + \vec{v}) \cdot (\vec{u} - \vec{v}) 
+            = \vec{u}^2 + \vec{v}^2
+        \end{equation}
+
+    \item Formules de polarisation: $$
+    \begin{aligned}
+    \vec{u} \cdot \vec{v} 
+    & = \frac{1}{2}\of{
+        \norm{\vec{u} + \vec{v}}^2 
+        - \norm{\vec{u}}^2 
+        - \norm{\vec{v}}^2
+    } \\
+    & = \frac{1}{2}\of{
+        \norm{\vec{u}}^2
+        + \norm{\vec{v}}^2
+        - \norm{\vec{u} + \vec{v}}^2
+    } \\
+    & = \frac{1}{4}\of{
+        \norm{\vec{u} + \vec{v}}^2
+        - \norm{\vec{u} - \vec{v}}^2
+    }
+    \end{aligned} $$
+
+\paragraph{Droites et plans.}
+Pour 2 droites dans $\R^2$, il y a 2 états possibles:
+\textit{parallèles} et \textit{sécantes} (possiblement perpendiculaires). \\ 
+Or, dans $\R^3$, un état s'ajoute: 
+\textit{non sécantes et non parallèles}. \\
+
+Dans $\R^3$:
+\begin{itemize}
+    \item Pour 2 droites $(d_1)$ et $(d_2)$, $(d_1) \perp (d_2)$ \textit{si},
+        pour les vecteurs directeurs respectifs $\vec{d_1}$ et $\vec{d_2}$:
+        $$
+            \vec{d_1} \cdot \vec{d_2} 
+            \textbf{ et } (d_1) \cap (d_2)
+        $$
+
+    \item $\hat{n} = \vec{n}$ est le vecteur normal du plan $\mathcal{P}$ $$
+    \begin{aligned}
+        \iff & \hat{n} \perp \mathcal{P} \\        
+        \iff & \forall \vec{t} \in \mathcal{P}: \hat{n} \cdot \vec{t} = 0 \\
+        \iff & \vec{u}, \vec{v} \in \mathcal{P}, 
+            \forall k \in \R \; \vec{u} \neq k\vec{v}: \\
+        &\hat{n} \cdot \vec{u} = \hat{n} \cdot \vec{v} = 0 
+    \end{aligned}
+    $$
+    
+    Propriétés: $$
+    \begin{aligned}
+        & \norm{\hat{n}} = 1 \\
+        \mathcal{P}: \: & x_{\hat{n}} + y_{\hat{n}} + z_{\hat{n}} + d = 0 \\
+    \end{aligned}
+    $$ 
+    \item $H$ est le \textit{projeté orthogonal} de $A \in \R^3$ 
+        sur le plan $\mathcal{P}$ \textit{si}, pour une droite $(d)$,
+        guidée par le vecteur normal $\hat{n}$ à $\mathcal{P}$: $$
+        \begin{aligned}
+            H = (d) \cap \mathcal{P}
+        \end{aligned} $$
+
+    \item $\mathcal{P}$ est un \textit{plan médiateur} \textit{si},
+        pour un segment $[AB] \subset \R^3$: $$
+        \begin{aligned}
+            & \forall M \in \mathcal{P} \\
+            & AM = BM \\
+            \iff & (x_M - x_A)^2 + (y_M - y_A)^2 + (z_M - z_A)^2 \\
+               = & (x_M - x_B)^2 + (y_M - y_B)^2 + (z_M - z_B)^2
+        \end{aligned} $$
+
+
+\end{itemize}
+
+
+\end{itemize}
 
 \end{document}
