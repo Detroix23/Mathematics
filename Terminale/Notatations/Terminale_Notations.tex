@@ -14,42 +14,16 @@
 \usepackage{csquotes}
 \usepackage{interval}
 \usepackage{pifont}
+\usepackage{import}
+
+\import{../../}{Common}
+
 
 % Pages.
 \sloppy 
 \geometry{a4paper, total={17cm, 25cm}}
 \renewcommand{\baselinestretch}{1.4}
 
-% Macros.
-%% Double interval.
-\newcommand{\iinterval}[2]{
-    \left\llbracket 
-        #1; #2 
-    \right\rrbracket
-}
-%% Finite set, with curly braces.
-\newcommand{\setf}[1]{\left\{#1\right\}}
-%% Parenthesis.
-\newcommand{\of}[1]{\left(#1\right)}
-%% Square brackets.
-\newcommand{\brackets}[1]{\left[#1\right]}
-%% Floor brackets.
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-%% Ceiling brackets.
-\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
-%% Absolute value.
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
-%% Pre-formatted "Exemple".
-\newcommand{\Ex}{\textsc{Exemple}: }
-%% Pre-formatted "Tel que".
-\newcommand{\tq}{\text{ tel que }}
-%% Items.
-\newcommand{\In}{$\sim$}
-\newcommand{\Il}{$\square$}
-\newcommand{\Ia}{$\blacksquare$}
-\newcommand{\Ii}{\ding{93}}
-
-\AtBeginDocument{\def\labelitemi{\Ia}}
 
 % Data.
 \title{Terminale - Notations mathématiques.}

@@ -1,0 +1,52 @@
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+\documentclass[12pt]{article}
+
+% Packages.
+\usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
+\usepackage{amsmath, amssymb}   % Advanced math typesetting
+\usepackage{stmaryrd, bbm}
+\usepackage[french]{babel}      % Change hyphenation rules
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}           % Source code formatting and highlighting
+\usepackage{csquotes}
+\usepackage{interval}
+\usepackage{pifont}
+\usepackage{import}
+
+\import{../../}{Common}
+
+% Pages.
+\sloppy 
+\geometry{a4paper, total={17cm, 25cm}}
+\renewcommand{\baselinestretch}{1.4}
+
+% Data.
+\title{Terminale - Mathématiques: limites de fonctions.}
+\author{\AuthorName}
+\date{\today{}}
+
+\begin{document}
+\maketitle
+
+\section{Rappels généraux sur les fonctions.}
+$f, u, v$ notent des fonctions $\R \to \R$.
+
+\paragraph{Dérivation.} 
+Règle générale de la dérivation composée: $$
+      \of{v\of{u\of{x}}}^{\prime} 
+    = (v \circ u)^{\prime}\of{x} 
+    = v^{\prime}\of{u\of{x}} \times u^{\prime}\of{x}
+$$
+\begin{itemize}
+  \item $(u^n)^{\prime} = n\,u^{n-1} \times u^{\prime}$;
+  \item $()$;
+\end{itemize}
+
+
+
+
+
+\end{document}

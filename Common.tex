@@ -1,0 +1,39 @@
+%! Common commands and shortcuts.
+
+%% Define the author.
+\newcommand{\AuthorName}{Hector GARLATTI}
+
+% Macros.
+%% Double interval.
+\newcommand{\iinterval}[2]{
+    \left\llbracket 
+        #1; #2 
+    \right\rrbracket
+}
+%% Finite set, with curly braces.
+\newcommand{\setf}[1]{\left\{#1\right\}}
+%% Square brackets.
+\newcommand{\brackets}[1]{\left[#1\right]}
+%% Floor brackets.
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+%% Ceiling brackets.
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+%% Absolute value.
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+%% Pre-formatted "Exemple".
+\newcommand{\Ex}{\textsc{Exemple}: }
+%% Pre-formatted "Tel que".
+\newcommand{\tq}{\text{ tel que }}
+%% Items.
+\newcommand{\In}{$\sim$}
+\newcommand{\Il}{$\square$}
+\newcommand{\Ia}{$\blacksquare$}
+\newcommand{\Ii}{\ding{93}}
+%% Real set.
+\newcommand{\R}{\mathbb{R}}
+%% Length of vector.
+\newcommand{\norm}[1]{\left\lVert\ #1\;\right\rVert}
+%% Parenthesis.
+\newcommand{\of}[1]{\left(#1\right)}
+
+\AtBeginDocument{\def\labelitemi{\Ia}}
