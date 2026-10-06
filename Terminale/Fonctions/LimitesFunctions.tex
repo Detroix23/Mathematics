@@ -34,15 +34,36 @@
 \section{Rappels généraux sur les fonctions.}
 $f, u, v$ notent des fonctions $\R \to \R$.
 
-\paragraph{Dérivation.} 
-Règle générale de la dérivation composée: $$
+\paragraph{Règles opératoires essentielles pour la dérivation.}
+\begin{itemize}
+  \item Addition:
+    $$(u + v)^{\prime} = u^{\prime} + v^{\prime}$$
+  \item Multiplication:
+    $$(uv)^{\prime} = u\,v^{\prime} + u^{\prime}v$$
+  \item Division:
+    $$ \of{\frac{u}{v}}^{\prime} = \frac{u\,v^{\prime} - u^{\prime}v}{v^2}$$
+  \item Composée (ou chaînée): $$
       \of{v\of{u\of{x}}}^{\prime} 
     = (v \circ u)^{\prime}\of{x} 
     = v^{\prime}\of{u\of{x}} \times u^{\prime}\of{x}
-$$
+    $$
+\end{itemize}
+
+\paragraph{Dérivées particulières.}
 \begin{itemize}
-  \item $(u^n)^{\prime} = n\,u^{n-1} \times u^{\prime}$;
-  \item $()$;
+  \item Loi des puissances: 
+    $$\of{u^n}^{\prime} = n\,u^{n-1} \times u^{\prime}$$
+  \item Racine carrée (obtenable depuis ci-dessus par $\sqrt{x} = x^{\frac{1}{2}}$): 
+    $$\of{\sqrt{u}}^{\prime} = \frac{u^{\prime}}{2\sqrt{u}}$$
+  \item Exponentielle:
+    $$\of{e^{u}}^{\prime} = u^{\prime} e^{u}$$
+  \item Logarithme:
+    $$\ln^{\prime} \of{u} = \frac{u^{\prime}}{u}$$
+  \item Sinus:
+    $$\sin^{\prime}\of{u} = \cos\of{u} u^{\prime}$$
+  \item Cosinus:
+    $$\cos^{\prime}\of{u} = -\sin\of{u} u^{\prime}$$ 
+
 \end{itemize}
 
 
