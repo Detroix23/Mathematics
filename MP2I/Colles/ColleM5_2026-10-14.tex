@@ -1,0 +1,47 @@
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+\documentclass[12pt]{article}
+
+% Packages.
+\usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
+\usepackage{amsmath, amssymb}   % Advanced math typesetting
+\usepackage{stmaryrd, bbm}
+\usepackage[french]{babel}      % Change hyphenation rules
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}           % Source code formatting and highlighting
+\usepackage{csquotes}
+\usepackage{interval}
+\usepackage{pifont}
+\usepackage{import}
+
+\import{../../}{Common_MP2I}
+\date{today{}}
+
+\begin{document}
+
+\paragraph{Question de cours.}
+Soit $f : \R \to \R$ qui réalise une bijection.
+Lien entre la monotonie de $f$ et de $f^{-1}$. Le démontrer.
+
+\paragraph{Question 1.} 
+Soit $f : x \mapsto \sqrt{x^2 + x + 6}$
+Admet-elle un asymptote en $+\infty$ ? Si oui, la déterminer.
+
+\paragraph{Question 2.}
+Montrer que $\forall x \in \R_{+}, \forall n \in \mathbb{N}$, $$
+    e^x \ge \sum_{k=0}^{n} \frac{x^k}{k!}
+$$
+
+Que se passe-t-il pour $x \in \R$ ?
+
+\paragraph{Question 3.} 
+Soit $f : x \mapsto \frac{x}{1 + \abs{x}}$
+Montrer que $f$ réalise une bijection de $\R$ sur un ensemble
+$J$ à préciser.
+
+\end{document}

@@ -1,4 +1,4 @@
-# Mathematics.
+ou# Mathematics.
 Quintic & rigidity.
 
 ## Sources:

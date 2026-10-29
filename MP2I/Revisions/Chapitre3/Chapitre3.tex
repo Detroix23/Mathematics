@@ -1,0 +1,140 @@
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+% !TeX program = pdflatex
+% !TeX encoding = UTF-8
+% Preamble.
+\documentclass[12pt]{article}
+
+% Packages.
+\usepackage[utf8]{inputenc}     % Unicode support (Umlauts etc.)
+\usepackage{amsmath, amssymb}   % Advanced math typesetting
+\usepackage{stmaryrd, bbm}
+\usepackage[french]{babel}      % Change hyphenation rules
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}           % Source code formatting and highlighting
+\usepackage{csquotes}
+\usepackage{interval}
+\usepackage{pifont}
+
+% Pages.
+\sloppy 
+\geometry{a4paper, total={17cm, 25cm}}
+\renewcommand{\baselinestretch}{1.4}
+
+%% Real set.
+\newcommand{\R}{\mathbb{R}}
+%% Length of vector.
+\newcommand{\norm}[1]{\left\lVert\ #1\;\right\rVert}
+%% Parenthesis.
+\newcommand{\of}[1]{\left(#1\right)}
+
+% Data.
+\title{MP2I - Sommes, Produits et systèmes linéaires.}
+\author{Hector GARLATTI.}
+\date{\today{}}
+
+\begin{document}
+\maketitle
+
+$\bigstar$ Fiche de synthèse.
+
+\section{Notations.}
+
+Soit des familles $(u_i)_{i \ge 0}, (v_i)_{i \ge 0}$.
+
+\begin{itemize}
+    \item Changement d'indice : soit $k, i \in \mathbb{Z}, \; i = k + c$:
+$$
+\sum_{k = a}^{b} u_k = \sum_{i = a + c}^{b + c} u_{i - c}
+$$
+    \item Linéarité de la somme : $$
+\sum_{k=a}^{b} (\lambda u_k + v_k) = 
+\lambda \sum_{k=a}^{b} u_k + \sum_{k=a}^{b} v_k
+$$
+\end{itemize}
+
+\section{Propriétés.}
+
+Soit des familles $(u_i)_{i \ge 0}, (v_i)_{i \ge 0}, 
+\alpha \in \mathbb{R}, I \subset \mathbb{R}$  :
+
+\begin{itemize}
+    \item Somme repétées d'un scalaire : $$
+\sum_{i \in I} \alpha = \alpha \vert I \vert
+$$
+    \item Relation de Chasles : si $p \le q \le r$: $$
+\sum_{k=p}^{r} u_k = \sum_{k=p}^{q} u_k + \sum_{k=q+1}^{r} u_k   
+$$
+    \item Sommation par paquets : si $n \in \mathbb{N}, 
+I = I_1 \cup I_2 \cup \dots \cup I_n$ tous disjoints : $$
+\sum_{i \in I} u_i = \sum_{k=1}^{n} \sum_{i \in I_k} u_i
+$$
+    \item Somme \enquote{téléscopiques} : $$
+\sum_{k=p}^{q} (u_{k+1} - u_k) = u_{q + 1} - u_p  
+$$
+    \item Double somme et produit : si $w_{i,j} = u_i v_i$, $$
+\sum_{i=1}^{n} \sum_{j=1}^{n} w_{i, j} = 
+\left(\sum_{i=1}^{n} u_i\right) \left(\sum_{j=1}^{n} v_i \right)     
+$$
+\end{itemize}
+
+\section{Formules remarquables.}
+
+Soit $q \in \mathbb{C}$.
+
+\begin{itemize}
+    \item Somme des termes d'une suite géométrique : $$
+\sum_{k = a}^{b} = q^a \frac{1 - q^{b - a + 1}}{1 - q}  
+$$
+    \item Somme des $n \in \mathbb{N}$ premiers entier : $$
+\sum_{k = 0}^{n} = \frac{n(n + 1)}{2}  
+$$ 
+    \item Somme des $n \in \mathbb{N}$ premiers carrés : $$
+\sum_{k = 0}^{n} = \frac{n(n + 1)(2n + 1)}{6}  
+$$
+    \item $3^{\text{ème}}$ identité remarquable généralisée :
+si $a, b \in \mathbb{R}, n \in \mathbb{N}$ : $$
+a^n - b^n = (a - b)\sum_{k = 1}^{n} a^{n - k}b^{k - 1}
+$$
+    \item Carré d'une somme : $$
+\left(\sum_{i=1}^{n} u_i \right)^2 =
+\sum_{i=1}^{n} u_i^2 + 2\sum_{1 \le i < j \le n} u_i u_j  
+$$
+    \item Inégalié de Cauchy-Schwarz : $$
+\left(\sum_{i=1}^{n} u_i v_i \right)^2 =
+\left(\sum_{i=1}^{n} u_i^2 \right) 
+\left(\sum_{i=1}^{n} v_i^2 \right)  
+$$
+\end{itemize}
+
+\section{Coefficient binomiaux.}
+
+Soit $n, k \in \mathbb{N}, k > n$ :
+\begin{itemize}
+    \item Coefficient bionmial : $$
+\begin{pmatrix} n \\ k \end{pmatrix} = 
+\frac{n!}{k!(n - k)!} 
+$$
+    \item Formule du binome : $$
+(a + b)^n 
+= \sum_{k=0}^{n} \begin{pmatrix} n \\ k \end{pmatrix} a^k b^{n-k}
+$$
+\end{itemize}
+
+\section{Systèmes linéaires.} 
+
+Pour résoudre un système à $n$ équations et $p$ inconnues,
+il faut se rammener à un système diagonal à 
+coefficients  diagonaux non-nuls en utilisant
+les operations élémentaire qui préservent l'équivalence :
+\begin{itemize}
+    \item Multiplication : Soit $\lambda \in \mathbb{R}^{*}$, $$
+    L_i \leftarrow \lambda L_i
+$$
+    \item Échanger : $$ L_i \leftrightarrow L_j$$
+    \item Ajouter : $$ L_i \leftarrow L_i + L_j$$
+\end{itemize}
+
+\end{document}
